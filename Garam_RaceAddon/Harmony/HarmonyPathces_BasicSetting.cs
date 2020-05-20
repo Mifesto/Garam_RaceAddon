@@ -70,7 +70,7 @@ namespace Garam_RaceAddon
         [HarmonyPrefix]
         private static bool Prefix(ref DamageInfo dinfo, Pawn __instance)
         {
-            if (dinfo.Instigator is Pawn from && from.def is RaceAddonThingDef fromThingDef && from.CurJob.def == JobDefOf.SocialFight && fromThingDef.raceAddonSettings.basicSetting.maxDamageForSocialfight != 0)
+            if (dinfo.Instigator is Pawn from && from != null && from.def is RaceAddonThingDef fromThingDef && from.CurJob.def == JobDefOf.SocialFight && fromThingDef.raceAddonSettings.basicSetting.maxDamageForSocialfight != 0)
             {
                 dinfo.SetAmount(Mathf.Min(dinfo.Amount, fromThingDef.raceAddonSettings.basicSetting.maxDamageForSocialfight));
             }

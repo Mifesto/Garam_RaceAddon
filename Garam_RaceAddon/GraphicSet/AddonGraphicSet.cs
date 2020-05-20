@@ -30,7 +30,7 @@ namespace Garam_RaceAddon
             }
             else
             {
-                foreach (var hediff in hediffSet.hediffs.FindAll(x => x.Part.untranslatedCustomLabel == data.def.linkedBodyPart))
+                foreach (var hediff in hediffSet.hediffs.FindAll(x => x.Part != null && x.Part.untranslatedCustomLabel == data.def.linkedBodyPart))
                 {
                     if (data.def.hediffPaths.Find(x => x.hediffDef == hediff.def) is var info && info != null)
                     {
