@@ -293,7 +293,7 @@ namespace Garam_RaceAddon
                 {
                     result.Add(new Pair<string, Color>(set.paletteName, set.color.NewRandomizedColor()));
                 }
-                else if (set.melanin != null)
+                else if (set.melanin.max + set.melanin.min >= 0)
                 {
                     result.Add(new Pair<string, Color>(set.paletteName, PawnSkinColors.GetSkinColor(Rand.Range(set.melanin.min, set.melanin.max))));
                 }

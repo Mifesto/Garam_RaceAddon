@@ -43,7 +43,7 @@ namespace Garam_RaceAddon
         [HarmonyPostfix]
         private static void Postfix(Pawn __instance, PawnKindDef newKindDef)
         {
-            if (DefDatabase<RaceAddonPawnKindDef>.AllDefs.First(x => x.pawnKindDefReplacement.Any(y => y.originalPawnKindDef == newKindDef)) is var pkd && pkd != null)
+            if (DefDatabase<RaceAddonPawnKindDef>.AllDefsListForReading.Find(x => x.pawnKindDefReplacement.Any(y => y.originalPawnKindDef == newKindDef)) is var pkd && pkd != null)
             {
                 __instance.kindDef = pkd;
             }

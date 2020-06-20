@@ -27,7 +27,7 @@ namespace Garam_RaceAddon
         public float maleChance = -1f;
         public List<GraphicSetting.RaceAppearance> raceAppearances;
 
-        internal Backstory backstory;
+        public Backstory backstory;
 
         public override void ResolveReferences()
         {

@@ -24,7 +24,7 @@ namespace Garam_RaceAddon
         {
             public string paletteName;
             public ColorGenerator_Options color;
-            public FloatRange melanin;
+            public FloatRange melanin = new FloatRange(-1, -1);
         }
         public class ColorFromString
         {

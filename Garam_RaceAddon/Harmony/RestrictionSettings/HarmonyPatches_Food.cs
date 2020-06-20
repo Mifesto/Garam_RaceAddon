@@ -13,7 +13,7 @@ namespace Garam_RaceAddon
         [HarmonyPostfix]
         private static void Postfix(ThingDef t, RaceProperties __instance, ref bool __result)
         {
-            if (__result && DefDatabase<ThingDef>.AllDefsListForReading.First((ThingDef x) => x.race == __instance) is ThingDef thingDef)
+            if (__result && __instance.Humanlike && DefDatabase<ThingDef>.AllDefsListForReading.First((ThingDef x) => x.race == __instance) is ThingDef thingDef)
             {
                 __result = RaceAddonTools.CheckFood(thingDef, t);
             }
