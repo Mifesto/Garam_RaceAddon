@@ -36,19 +36,19 @@ namespace Garam_RaceAddon
         }
     }
     [HarmonyPatch(typeof(Pawn))]
-    [HarmonyPatch("<GetDisabledWorkTypes>g__FillList|232_0")]
     public static class HarmonyPatches_GetDisabledWorkTypes
     {
-        [HarmonyPostfix]
-        private static void Postfix(Pawn __instance, ref List<WorkTypeDef> list)
+
+        [HarmonyPatch(nameof(Pawn.GetDisabledWorkTypes)), HarmonyPostfix]
+        private static void Postfix(Pawn __instance, bool permanentOnly, ref List<WorkTypeDef> __result)
         {
             if (__instance.def is RaceAddonThingDef thingDef)
             {
                 foreach (WorkTypeDef def in thingDef.DisabledWorkTypes)
                 {
-                    if (!list.Contains(def))
+                    if (!__result.Contains(def))
                     {
-                        list.Add(def);
+                        __result.Add(def);
                     }
                 }
             }

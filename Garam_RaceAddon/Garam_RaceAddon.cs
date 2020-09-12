@@ -17,7 +17,7 @@ namespace Garam_RaceAddon
         {
             var harmony = new Harmony("com.rimworld.Dalrae.Garam_RaceAddon");
             harmony.PatchAll();
-            harmony.Patch(AccessTools.FirstMethod(AccessTools.FirstInner(typeof(CharacterCardUtility), x => x.Name.Contains("14_1")), x => x.Name.Contains("b__23")), null, null, new HarmonyMethod(typeof(HarmonyPathces_DrawCharacterCard), "Transpiler"));
+            harmony.Patch(AccessTools.FirstMethod(AccessTools.FirstInner(typeof(CharacterCardUtility), x => x.Name.Contains("14_1")), x => x.Name.Contains("b__21")), null, null, new HarmonyMethod(typeof(HarmonyPathces_DrawCharacterCard), "Transpiler"));
 
             //==================== Recipe Import ====================//
             foreach (var thingDef in DefDatabase<RaceAddonThingDef>.AllDefs)
