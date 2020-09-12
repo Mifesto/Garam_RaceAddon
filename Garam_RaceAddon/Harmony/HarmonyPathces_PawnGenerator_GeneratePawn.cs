@@ -264,7 +264,7 @@ namespace Garam_RaceAddon
                     }
                     else
                     {
-                        foreach (var hediff in target.health.hediffSet.hediffs.FindAll(x => x.Part.untranslatedCustomLabel == addonSet.addonDef.linkedBodyPart))
+                        foreach (var hediff in target.health.hediffSet.hediffs.FindAll(x => x.Part != null && x.Part.untranslatedCustomLabel == addonSet.addonDef.linkedBodyPart))
                         {
                             if (addonSet.addonDef.hediffPaths.Find(x => x.hediffDef == hediff.def) is var info && info != null)
                             {
