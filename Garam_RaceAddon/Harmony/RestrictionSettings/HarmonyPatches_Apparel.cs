@@ -25,18 +25,21 @@ namespace Garam_RaceAddon
         }
     }
     [HarmonyPatch(typeof(JobGiver_OptimizeApparel))]
-    [HarmonyPatch("ApparelScoreGain")]
+    [HarmonyPatch("ApparelScoreGain_NewTmp")]
     public static class HarmonyPatches_ApparelScoreGain
     {
-        [HarmonyPrefix]
-        private static bool Prefix(Pawn pawn, Apparel ap, ref float __result)
+        [HarmonyPostfix]
+        private static void Postfix(Pawn pawn, Apparel ap, ref float __result)
         {
+            if (__result < 0f)
+            {
+                return;
+            }
+
             if (!RaceAddonTools.CheckApparel(pawn, ap.def))
             {
-                __result = -100f;
-                return false;
+                __result = -50f;
             }
-            return true;
         }
     }
     [HarmonyPatch(typeof(JobGiver_PrisonerGetDressed))]
